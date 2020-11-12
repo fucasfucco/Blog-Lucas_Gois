@@ -1,0 +1,23 @@
+
+<%- include("partials/header"); -%>
+
+    <h1>POST</h1>
+    <form class="" action="/compose" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="postTitle">
+        <label>Content</label>
+        <textarea class="form-control" name="postBody" rows="5" cols="30"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Publicar</button>
+    </form>
+    <form id="chat">
+      <div class="messages">
+      </div>
+      <input type="text" name="message" placeholder="Digite sua mensagem">
+      <button type="submit">Enviar</button>
+    </form>
+    <script> var username = "<%= username %>";</script>
+
+
+<%- include("partials/footer"); -%>

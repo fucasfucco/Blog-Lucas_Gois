@@ -1,0 +1,43 @@
+
+<%- include("partials/header"); -%>
+
+<!------------------------------- AD, Home text, Post form --------------------->
+ <div id="anuncio">
+   <img class="tesaoAnuncio" id="tesao" src="https://sensacion.com.br/wp-content/uploads/2019/11/4-tes%C3%A3o-de-vaca-e-touro-25-2.jpg" alt="">
+   <h1>Home</h1>
+   <div id="containerHome" class="container containerHome containerHomeCss" ondblclick="cancelButton()">
+     <form class=""  method="post">
+       <div class="form-group">
+         <label class="labels">Title</label>
+         <input class="form-control containerHomeCss" type="text"id="input" name="postTitle">
+         <label class="labels">Content</label>
+         <textarea class="form-control containerHomeCss" id="textarea"name="postBody" rows="5" cols="30"></textarea>
+       </div>
+       <button id="PublishButton"class="btn btn-primary publishButton" type="submit" formaction="/compose" name="button">Publicar</button>
+       <button id="PublishButton"class="btn btn-primary publishButton" type="submit" formaction="/anon"  name="button">Publicar Anônimamente</button> 
+       <button type="button" id="cancelButtonId" class="btn btn-danger cancelButtonCss" onclick="cancelButton() ">Cancelar</button>
+     </form>
+   </div>
+   <h2 style="color:#595b83">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dum
+     my text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typ
+     e specimen book.</h2>
+   <br style="padding: 100px;">
+ </div>
+
+<!------------------------------- AD, Home text, Post form --------------------->  
+
+<!------------------------------- Delete post --------------------->
+
+<form action="/delete" method="post">
+ <%posts.forEach(function(post){%>
+   <button type="button" id="closeWindowButton"class="btn btn-danger offButtonFunction closeWindowButton"  onclick="closeWindowOfPost(this)">X</button>
+   <div id="postContainer" class="delete" ondblclick="dbClickedPost(this)" onclick="clickedPost(this)">
+     <label class="authorPostCss"><%=post.author%></label>
+   <button id="buttonDelete" type="checkbox" name="buttonDelete"value="<%=post._id%>" onChange="this.form.submit()" class="inviDelete offButtonFunction btn btn-danger">🗑️</button>
+   <h1 class="postH1"><%=post.title%></h1>
+   <p><%=post.content%> </p> 
+ </div>
+   <% }); %>
+<!------------------------------- Delete post --------------------->
+
+<%- include("partials/footer"); -%>
