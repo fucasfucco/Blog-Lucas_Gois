@@ -1,2 +1,2 @@
 # Blog-Lucas_Gois
-My personal blog
+Blog made with HTMl, CSS, JavaScript, NodeJS, Express, EJS, MongoDB and Socket.io.
